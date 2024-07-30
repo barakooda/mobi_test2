@@ -15,7 +15,6 @@ def main():
     file_path = r"C:\temp\mobi_test2\output_path.json"  # Replace with your actual file path
     data = load_json_as_dict(file_path)
     
-    print(data.get('lanes')[0])
 
     visualize_lanes(data.get('lanes'))
 
