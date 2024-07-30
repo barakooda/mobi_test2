@@ -17,7 +17,7 @@ def main():
     
     print(data.get('lanes')[0])
 
-    visualize_lanes(data.get('lanes')[0])
+    visualize_lanes(data.get('lanes'))
 
 
 
