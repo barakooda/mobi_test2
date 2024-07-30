@@ -57,12 +57,12 @@ def visualize_lanes(lanes_data):
         go_mesh = go.Mesh3d(x=x, y=y, z=z, i=i, j=j, k=k, opacity=0.5, color=colors[lane_data.get('id')%len(colors)])
         fig.add_trace(go_mesh)
     fig.update_layout(
-    scene=dict(
-        xaxis_title='X',
-        yaxis_title='Y',
-        zaxis_title='Z'
-    ),
-    title='Lane Mesh Visualization'
+        scene=dict(
+            xaxis=dict(title='X', range=[-250, 250]),
+            yaxis=dict(title='Y', range=[-500, 500]),
+            zaxis=dict(title='Z', range=[-250, 250])
+        ),
+        title='Lane Mesh Visualization'
     )
     fig.show()
 
