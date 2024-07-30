@@ -6,7 +6,7 @@ def visualize_lanes(lanes_data):
     fig = go.Figure()
     
     # Colors for different lanes
-    colors = ['blue', 'red', 'green', 'orange', 'purple', 'pink', 'yellow', 'cyan']
+    colors = ['blue', 'red', 'green', 'orange', 'purple', 'pink', 'yellow', 'cyan', 'magenta', 'lime', 'navy', 'maroon']
 
     for lane_idx, lane_data in enumerate(lanes_data):
         points = np.array([pt['location'] for pt in lane_data['points']])
@@ -18,7 +18,7 @@ def visualize_lanes(lanes_data):
         left_boundary = points - right_vectors * half_widths[:, np.newaxis]
         right_boundary = points + right_vectors * half_widths[:, np.newaxis]
 
-        # Combine the boundary points for the mesh
+        # Create the vertices for the mesh
         vertices_x = np.concatenate([left_boundary[:, 0], right_boundary[:, 0]])
         vertices_y = np.concatenate([left_boundary[:, 1], right_boundary[:, 1]])
         vertices_z = np.concatenate([left_boundary[:, 2], right_boundary[:, 2]])
@@ -30,9 +30,9 @@ def visualize_lanes(lanes_data):
         k = []
 
         for idx in range(num_points - 1):
-            i.extend([idx, idx + num_points])
-            j.extend([idx + 1, idx + 1 + num_points])
-            k.extend([idx + num_points, idx + 1])
+            i.extend([idx, idx, idx + 1, idx + 1])
+            j.extend([idx + num_points, idx + 1 + num_points, idx + num_points, idx + 1])
+            k.extend([idx + 1, idx, idx + 1 + num_points, idx + num_points])
 
         # Create the mesh
         mesh = go.Mesh3d(
