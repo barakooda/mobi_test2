@@ -60,7 +60,7 @@ def visualize_lanes(lanes_data):
         scene=dict(
             xaxis=dict(title='X', range=[-250, 250]),
             yaxis=dict(title='Y', range=[-500, 500]),
-            zaxis=dict(title='Z', range=[-250, 250])
+            zaxis=dict(title='Z', range=[-1, 1])
         ),
         title='Lane Mesh Visualization'
     )
